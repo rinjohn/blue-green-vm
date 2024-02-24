@@ -1,1 +1,13 @@
+az group create --name rg-terraform-github-actions-state --location westus
 
+az storage account create \
+  --name terraformgha004748 \
+  --resource-group rg-terraform-github-actions-state \
+  --location westus \
+  --sku Standard_LRS \
+  --kind StorageV2
+
+													
+az storage container create \
+    --name tfstate \
+    --account-name terraformgha004748
